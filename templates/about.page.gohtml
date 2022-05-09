@@ -1,0 +1,10 @@
+{{template "base" .}}
+{{define "content"}}
+    {{$remoteIp:=index .StringMap "remote_ip"}}
+    <h1 class="text-3xl">This is the about page</h1>
+      {{if ne $remoteIp ""}}
+    <h1 class="text-3xl">{{$remoteIp}}</h1>
+        {{else}}
+          I can't find your IP Address. Visit <a href="/">home</a> to get it
+          {{end}}
+{{end}}

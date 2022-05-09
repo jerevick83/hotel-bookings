@@ -1,0 +1,43 @@
+{{define "base"}}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.tailwindcss.com"></script>
+        {{block "css" .}}
+        {{end}}
+        {{block "title" .}}
+
+        {{end}}
+    </head>
+    <body >
+    <div class="container top-0 flex max-w-full bg-purple-900">
+        <nav class="container flex flex-wrap justify-between text-lg text-white p-1 max-w-full sm:flex-row sm:flex-wrap md:flex-row lg:flex-row">
+            <div>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-extrabold"><a href="/">{{upper "Home"}}</a></button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold"><a href="/about">About</a></button>
+            </div>
+            <div>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Services</button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Activities</button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Results</button>
+            </div>
+            <div>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Apply</button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">My Page</button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Login</button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Logout</button>
+                <button class="p-2 hover:bg-gray-900 focus:bg-gray-900 font-bold">Profile</button>
+            </div>
+        </nav>
+    </div>
+    {{block "content" .}}
+    {{end}}
+    {{block "js" .}}
+    {{end}}
+    </body>
+    </html>
+{{end}}

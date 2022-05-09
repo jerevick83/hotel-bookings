@@ -1,0 +1,13 @@
+{{template "base" .}}
+{{define "content"}}
+<div class="pl-16 flex gap-4 mt-6">
+    <h1 class="text-pink-300 font-32 ">Hello homepage</h1>
+    <p>Getting there</p>
+
+    {{$greet:= index .StringMap "test"}}
+        <h2>{{upper $greet}}</h2>
+
+
+</div>
+<p>Goto the <a href="/about">About</a> page</p>
+{{end}}
