@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"github.com/jerevick83/hotel_bookings/pkg/config"
 	"github.com/jerevick83/hotel_bookings/pkg/models"
 	"github.com/jerevick83/hotel_bookings/pkg/render"
@@ -26,7 +25,6 @@ func NewHandler(r *Repository) {
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(*Repo)
 	remoteIp := r.RemoteAddr
 	m.App.Session.Put(r.Context(), "remote_ip", remoteIp)
 	stringMap := make(map[string]string)

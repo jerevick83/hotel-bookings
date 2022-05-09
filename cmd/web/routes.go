@@ -9,12 +9,14 @@ import (
 )
 
 func routes(app *config.AppConfig) http.Handler {
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Use(middleware.Recoverer)
-	r.Use(NoSurf)
-	r.Use(SessionLoad)
-	r.HandleFunc("/", handlers.Repo.Home)
-	r.HandleFunc("/about", handlers.Repo.About)
-	return r
+	mux := chi.NewRouter()
+	mux.Use(middleware.Logger)
+	mux.Use(middleware.Recoverer)
+	mux.Use(NoSurf)
+	mux.Use(SessionLoad)
+	mux.HandleFunc("/", handlers.Repo.Home)
+	mux.HandleFunc("/about", handlers.Repo.About)
+	fileserver := http.FileServer(http.Dir("./static/"))
+	mux.Handle("/static/*", http.StripPrefix("/static", fileserver))
+	return mux
 }
